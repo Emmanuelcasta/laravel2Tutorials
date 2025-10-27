@@ -21,7 +21,7 @@ jobs:
           docker login -u $DOCKER_USER -p $DOCKER_PASS
 
       - name: Build the Docker image
-        run: docker build . --file docker/Dockerfile --tag emmanuelcasta2/docker-express:latest
+        run: docker build . --file docker/Dockerfile --tag emmanuelc21/express-randomquotes:latest
 
       - name: Docker Push
-        run: docker push emmanuelcasta2/docker-express:latest
+        run: docker push emmanuelc21/express-randomquotes:latest
