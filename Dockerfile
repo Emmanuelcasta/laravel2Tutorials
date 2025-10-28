@@ -1,5 +1,5 @@
-FROM node:22
-
+# Usar la imagen oficial de Node.js como base;
+FROM node:22 
 # Crear directorio de la app
 WORKDIR /usr/src/app
 
