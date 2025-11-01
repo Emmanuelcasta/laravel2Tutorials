@@ -13,4 +13,4 @@ COPY . .
 # Exponer puerto
 EXPOSE 8080
 
-CMD [ "node", "index.js" ]
+CMD [ "node", "src/app.js" ]
