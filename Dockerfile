@@ -1,16 +1,16 @@
-# Usar la imagen oficial de Node.js como base;
-FROM node:22 
-# Crear directorio de la app
+FROM node:22-alpine
+
 WORKDIR /usr/src/app
 
-# Copiar dependencias
+# deps
 COPY package*.json ./
-RUN npm install
+RUN npm ci --omit=dev || npm install --omit=dev
 
-# Copiar código fuente
-COPY . .
+# código
+COPY src ./src
 
-# Exponer puerto
+ENV NODE_ENV=production
+ENV PORT=8080
 EXPOSE 8080
 
-CMD [ "node", "src/app.js" ]
+CMD ["node","src/app.js"]
