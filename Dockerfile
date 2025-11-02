@@ -1,16 +1,25 @@
-FROM node:22-alpine
+# syntax=docker/dockerfile:1.7
 
+# Base mínima y actual
+FROM node:22-alpine AS base
 WORKDIR /usr/src/app
 
-# deps
+# Instala solo lo necesario usando el lockfile
 COPY package*.json ./
-RUN npm ci --omit=dev || npm install --omit=dev
+RUN npm ci --omit=dev
 
-# código
-COPY src ./src
+# Copia el resto del código
+COPY . .
 
+# Configuración de runtime
 ENV NODE_ENV=production
 ENV PORT=8080
+
+# Usuario no root
+USER node
+
+# Expone el puerto en el contenedor
 EXPOSE 8080
 
-CMD ["node","src/app.js"]
+# Arranque de la app (tu entrypoint está en scr/app.js)
+CMD ["node", "scr/app.js"]
