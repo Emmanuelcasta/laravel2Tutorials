@@ -25,4 +25,5 @@ jobs:
 
 
       - name: Docker Push
-        run: docker push Emmanuelcasta/laravel2tutorials:latest
+        run: docker push docker.io/Emmanuelcasta/laravel2tutorials:latest
+
