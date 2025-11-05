@@ -21,7 +21,7 @@ jobs:
           docker login -u $DOCKER_USER -p $DOCKER_PASS
 
       - name: Build the Docker image
-        run: docker build . --file docker/DockerFile --tag Emmanuelcasta/laravel2tutorials:latest
+        run: docker build . --file docker/Dockerfile --tag Emmanuelcasta/laravel2tutorials:latest
 
       - name: Docker Push
         run: docker push Emmanuelcasta/laravel2tutorials:latest
